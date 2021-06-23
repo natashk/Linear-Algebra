@@ -15,7 +15,7 @@ class Line(object):
         if not normal_vector:
             all_zeros = ['0']*self.dimension
             normal_vector = Vector(all_zeros)
-        self.normal_vector = normal_vector
+        self.normal_vector = [Decimal(x) for x in normal_vector]
 
         if not constant_term:
             constant_term = Decimal('0')
@@ -97,6 +97,43 @@ class Line(object):
         raise Exception(Line.NO_NONZERO_ELTS_FOUND_MSG)
 
 
+    def is_parallel(self, l2):
+        n1 = Vector(self.normal_vector)
+        n2 = Vector(l2.normal_vector)
+        n1_norm = n1.norm()
+        n2_norm = n2.norm()
+        dot_product = n1_norm * n2_norm
+        return MyDecimal(dot_product - Decimal(1)).is_near_zero()
+
+    def __eq__(self, l2):
+        v = self.basepoint - l2.basepoint
+        return MyDecimal(v*Vector(self.normal_vector)).is_near_zero()
+
+    def intersection(self, l2):
+        if self == l2:
+            return "The same line"
+        if self.is_parallel(l2):
+            return "The lines are parallel"
+        A, B = self.normal_vector
+        C, D = l2.normal_vector
+        k1 = self.constant_term
+        k2 = l2.constant_term
+        dividend1 = D*k1 - B*k2
+        dividend2 = -C*k1 + A*k2
+        divisor = self.normal_vector[0]  *l2.normal_vector[1] - self.normal_vector[1] * l2.normal_vector[0]
+        return (dividend1/divisor, dividend2/divisor)
+
+
 class MyDecimal(Decimal):
     def is_near_zero(self, eps=1e-10):
         return abs(self) < eps
+
+
+l1 = Line([2,4],8)
+l2 = Line([4,8],8)
+l3 = Line([5,6],7)
+print(l1.is_parallel(l2))
+print(l1==l2)
+print(l1.intersection(l3))
+
+print(Line([4.046,2.836],1.21).intersection(Line([10.115,7.09],3.025)))

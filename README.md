@@ -30,9 +30,9 @@ Python class for vector algebra
 
 ### Dot Product (Inner Product)
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\bar{v_{1}}&space;\cdot&space;\bar{v_{2}}&space;=&space;\left&space;\|&space;\bar{v_{1}}&space;\right&space;\|&space;\cdot&space;\left&space;\|&space;\bar{v_{2}}&space;\right&space;\|&space;\cdot&space;\cos&space;(\alpha&space;)" title="\bar{v_{1}} \cdot \bar{v_{2}} = \left \| \bar{v_{1}} \right \| \cdot \left \| \bar{v_{2}} \right \| \cdot \cos (\alpha )" /></br>
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\bar{v_{1}}&space;\cdot&space;\bar{v_{2}}&space;=&space;\left&space;\|&space;\bar{v_{1}}&space;\right&space;\|&space;\cdot&space;\left&space;\|&space;\bar{v_{2}}&space;\right&space;\|&space;\cdot&space;\cos&space;(\alpha&space;)" title="\bar{v_{1}} \cdot \bar{v_{2}} = \left \| \bar{v_{1}} \right \| \cdot \left \| \bar{v_{2}} \right \| \cdot \cos (\alpha )" /><br/>
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\alpha&space;=&space;\arccos&space;(\frac{\bar{v_{1}}}{\left&space;\|&space;\bar{v_{1}}&space;\right&space;\|}&space;\cdot&space;\frac{\bar{v_{2}}}{\left&space;\|&space;\bar{v_{2}}&space;\right&space;\|})" title="\alpha = \arccos (\frac{\bar{v_{1}}}{\left \| \bar{v_{1}} \right \|} \cdot \frac{\bar{v_{2}}}{\left \| \bar{v_{2}} \right \|})" /></br>
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\alpha&space;=&space;\arccos&space;(\frac{\bar{v_{1}}}{\left&space;\|&space;\bar{v_{1}}&space;\right&space;\|}&space;\cdot&space;\frac{\bar{v_{2}}}{\left&space;\|&space;\bar{v_{2}}&space;\right&space;\|})" title="\alpha = \arccos (\frac{\bar{v_{1}}}{\left \| \bar{v_{1}} \right \|} \cdot \frac{\bar{v_{2}}}{\left \| \bar{v_{2}} \right \|})" /><br/>
 
 <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\bar{v_{1}}&space;\cdot&space;\bar{v_{2}}&space;=&space;x_{1}\cdot&space;x_{2}&space;&plus;&space;y_{1}\cdot&space;y_{2}&space;&plus;&space;z_{1}\cdot&space;z_{2}" title="\bar{v_{1}} \cdot \bar{v_{2}} = x_{1}\cdot x_{2} + y_{1}\cdot y_{2} + z_{1}\cdot z_{2}" />
 
@@ -62,9 +62,9 @@ or
 
 <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\bar{v}&space;\times&space;\bar{w}" title="\bar{v} \times \bar{w}" style="margin-right: 20px;" /> orthogonal to both <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\bar{v}" title="\bar{v}" style="margin: 0 10px;" /> and <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\bar{w}" title="\bar{w}" style="margin-left: 10px;" /> (right hand rule)
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;\|&space;\bar{v}&space;\times&space;\bar{w}&space;\right&space;\|&space;=&space;\left&space;\|&space;\bar{v}&space;\right&space;\|&space;\cdot&space;\left&space;\|&space;\bar{w}&space;\right&space;\|&space;\cdot&space;\sin&space;(\alpha&space;)" title="\left \| \bar{v} \times \bar{w} \right \| = \left \| \bar{v} \right \| \cdot \left \| \bar{w} \right \| \cdot \sin (\alpha )" /></br>
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;\|&space;\bar{v}&space;\times&space;\bar{w}&space;\right&space;\|&space;=&space;\left&space;\|&space;\bar{v}&space;\right&space;\|&space;\cdot&space;\left&space;\|&space;\bar{w}&space;\right&space;\|&space;\cdot&space;\sin&space;(\alpha&space;)" title="\left \| \bar{v} \times \bar{w} \right \| = \left \| \bar{v} \right \| \cdot \left \| \bar{w} \right \| \cdot \sin (\alpha )" /><br/>
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;\|&space;\bar{v}&space;\times&space;\bar{w}&space;\right&space;\|&space;=&space;-(\left&space;\|&space;\bar{w}&space;\times&space;\bar{v}&space;\right&space;\|)" title="\left \| \bar{v} \times \bar{w} \right \| = -(\left \| \bar{w} \times \bar{v} \right \|)" /></br>
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;\|&space;\bar{v}&space;\times&space;\bar{w}&space;\right&space;\|&space;=&space;-(\left&space;\|&space;\bar{w}&space;\times&space;\bar{v}&space;\right&space;\|)" title="\left \| \bar{v} \times \bar{w} \right \| = -(\left \| \bar{w} \times \bar{v} \right \|)" /><br/>
 
 <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;\|&space;\bar{v}&space;\times&space;\bar{w}&space;\right&space;\|" title="\left \| \bar{v} \times \bar{w} \right \|" style="margin-right: 20px;" /> - area of parallelogram
 
@@ -72,3 +72,33 @@ or
 
 <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;\|&space;\bar{v}&space;\times&space;\bar{w}&space;\right&space;\|&space;=&space;\begin{bmatrix}&space;y_{1}z_{2}&space;-&space;y_{2}z_{1}\\&space;-(x_{1}z_{2}&space;-&space;x_{2}z_{1})\\&space;x_{1}y_{2}&space;-&space;x_{2}y_{1}&space;\end{bmatrix}" title="\left \| \bar{v} \times \bar{w} \right \| = \begin{bmatrix} y_{1}z_{2} - y_{2}z_{1}\\ -(x_{1}z_{2} - x_{2}z_{1})\\ x_{1}y_{2} - x_{2}y_{1} \end{bmatrix}" />
 
+## Intersections
+
+### Lines in 2D
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;A&space;x&space;&plus;&space;B&space;y&space;=&space;k" title="A\cdot x + B\cdot y = k" />
+
+Basepoints:
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;(&space;0,\frac{k}{B}&space;\right&space;)" title="\left ( 0,\frac{k}{B} \right )" style="margin-right: 20px" />, if B&#8800;0<br/>
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left&space;(&space;\frac{k}{A},0&space;\right&space;)" title="\left ( \frac{k}{A}, 0\right )" style="margin-right: 20px" />, if A&#8800;0
+
+With basepoint (0,0):
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;A&space;x&space;&plus;&space;B&space;y&space;=&space;0" title="A\cdot x + B\cdot y = 0" /><br/>
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;A\\&space;B&space;\end{bmatrix}&space;\cdot&space;\begin{bmatrix}&space;x\\&space;y&space;\end{bmatrix}&space;=&space;0" title="\begin{bmatrix} A\\ B \end{bmatrix} \cdot \begin{bmatrix} x\\ y \end{bmatrix} = 0" />
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;A\\&space;B&space;\end{bmatrix}" title="\begin{bmatrix} A\\ B \end{bmatrix}" style="margin-right: 10px;" /> and <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;x\\&space;y&space;\end{bmatrix}" title="\begin{bmatrix} x\\ y \end{bmatrix}" style="margin: 0 10px;" /> orthogonal
+
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;A\\&space;B&space;\end{bmatrix}" title="\begin{bmatrix} A\\ B \end{bmatrix}" style="margin-right: 20px;" /> normal vector for the line <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;A&space;x&space;&plus;&space;B&space;y&space;=&space;k" title="A\cdot x + B\cdot y = k" style="margin-left: 20px;" /><br/>
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;B\\&space;-A&space;\end{bmatrix}" title="\begin{bmatrix} B\\ -A \end{bmatrix}" style="margin-right: 20px;" /> direction vector for the line <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;A&space;x&space;&plus;&space;B&space;y&space;=&space;k" title="A\cdot x + B\cdot y = k" style="margin-left: 20px;" />
+
+#### Intersection of 2 lines
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left\{\begin{matrix}&space;Ax&plus;By=k_{1}\\&space;Cx&plus;Dy=k_{2}&space;\end{matrix}\right." title="\left\{\begin{matrix} Ax+By=k_{1}\\ Cx+Dy=k_{2} \end{matrix}\right." /><br/>
+
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\left\{\begin{matrix}&space;x=\frac{Dk_{1}-Bk_{2}}{AD-BC}\\&space;\\&space;y=\frac{-Ck_{1}&plus;Ak_{2}}{AD-BC}&space;\end{matrix}\right." title="\left\{\begin{matrix} x=\frac{Dk_{1}-Bk_{2}}{AD-BC}\\ \\ y=\frac{-Ck_{1}+Ak_{2}}{AD-BC} \end{matrix}\right." />
