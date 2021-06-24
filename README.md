@@ -93,7 +93,7 @@ With basepoint (0,0):
 <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;A\\&space;B&space;\end{bmatrix}" title="\begin{bmatrix} A\\ B \end{bmatrix}" style="margin-right: 10px;" /> and <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;x\\&space;y&space;\end{bmatrix}" title="\begin{bmatrix} x\\ y \end{bmatrix}" style="margin: 0 10px;" /> orthogonal
 
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;A\\&space;B&space;\end{bmatrix}" title="\begin{bmatrix} A\\ B \end{bmatrix}" style="margin-right: 20px;" /> normal vector for the line <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;A&space;x&space;&plus;&space;B&space;y&space;=&space;k" title="A\cdot x + B\cdot y = k" style="margin-left: 20px;" /><br/>
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\bar{n}&space;=&space;\begin{bmatrix}&space;A\\&space;B&space;\end{bmatrix}" title="&space; = \begin{bmatrix} A\\ B \end{bmatrix}" style="margin-right: 20px;" /> normal vector for the line <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;A&space;x&space;&plus;&space;B&space;y&space;=&space;k" title="A\cdot x + B\cdot y = k" style="margin-left: 20px;" /><br/>
 
 <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\begin{bmatrix}&space;B\\&space;-A&space;\end{bmatrix}" title="\begin{bmatrix} B\\ -A \end{bmatrix}" style="margin-right: 20px;" /> direction vector for the line <img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;A&space;x&space;&plus;&space;B&space;y&space;=&space;k" title="A\cdot x + B\cdot y = k" style="margin-left: 20px;" />
 
