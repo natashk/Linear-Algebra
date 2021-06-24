@@ -38,9 +38,9 @@ Python class for vector algebra
 
 2 vectors are parallel, if
 
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\cos&space;(\alpha&space;)&space;=&space;1" title="\cos (\alpha ) = 1" style="margin-right: 20px;" />
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\cos&space;(\alpha&space;)&space;=&space;\pm&space;1" title="\cos (\alpha ) = \pm 1" style="margin-right: 20px;" />
 or
-<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\frac{\bar{v_{1}}}{\left&space;\|&space;\bar{v_{1}}&space;\right&space;\|}\cdot&space;\frac{\bar{v_{2}}}{\left&space;\|&space;\bar{v_{2}}&space;\right&space;\|}&space;=&space;1" title="\frac{\bar{v_{1}}}{\left \| \bar{v_{1}} \right \|}\cdot \frac{\bar{v_{2}}}{\left \| \bar{v_{2}} \right \|} = 1" style="margin-left: 20px;" />
+<img src="https://latex.codecogs.com/png.latex?\inline&space;\fn_jvn&space;\frac{\bar{v_{1}}}{\left&space;\|&space;\bar{v_{1}}&space;\right&space;\|}\cdot&space;\frac{\bar{v_{2}}}{\left&space;\|&space;\bar{v_{2}}&space;\right&space;\|}&space;=&space;\pm&space;1" title="\frac{\bar{v_{1}}}{\left \| \bar{v_{1}} \right \|}\cdot \frac{\bar{v_{2}}}{\left \| \bar{v_{2}} \right \|} = \pm 1" style="margin-left: 20px;" />
 
 2 vectors are orthogonal, if
 

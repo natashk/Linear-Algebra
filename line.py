@@ -102,7 +102,7 @@ class Line(object):
         n2 = Vector(l2.normal_vector)
         n1_norm = n1.norm()
         n2_norm = n2.norm()
-        dot_product = n1_norm * n2_norm
+        dot_product = abs(n1_norm * n2_norm)
         return MyDecimal(dot_product - Decimal(1)).is_near_zero()
 
     def __eq__(self, l2):
@@ -130,7 +130,7 @@ class MyDecimal(Decimal):
 
 
 l1 = Line([2,4],8)
-l2 = Line([4,8],8)
+l2 = Line([-4,-8],-16)
 l3 = Line([5,6],7)
 print(l1.is_parallel(l2))
 print(l1==l2)
