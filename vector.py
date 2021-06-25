@@ -1,7 +1,7 @@
 from decimal import *
 import math
 
-getcontext().prec = 10
+getcontext().prec = 30
 
 class Vector(object):
     def __init__(self, coordinates):
@@ -44,6 +44,9 @@ class Vector(object):
         return sum([x**2 for x in self.coordinates]).sqrt()
 
     def norm(self):
+        """
+        normalization (unit vector)
+        """
         len = self.len()
         if len == Decimal(0):
             return self

@@ -27,15 +27,27 @@ class LinearSystem(object):
 
 
     def swap_rows(self, row1, row2):
-        pass # add your code here
+        """
+        Swap rows with indices row1 and row2
+        """
+        self.planes[row1], self.planes[row2] = self.planes[row2], self.planes[row1]
 
 
     def multiply_coefficient_and_row(self, coefficient, row):
-        pass # add your code here
+        coefficient = Decimal(coefficient)
+        self.planes[row].normal_vector *= coefficient
+        self.planes[row].constant_term *= coefficient
 
 
     def add_multiple_times_row_to_row(self, coefficient, row_to_add, row_to_be_added_to):
-        pass # add your code here
+        coefficient = Decimal(coefficient)
+        norm_vector1 = self.planes[row_to_add].normal_vector
+        norm_vector2 = self.planes[row_to_be_added_to].normal_vector
+        const1 = self.planes[row_to_add].constant_term
+        const2 = self.planes[row_to_be_added_to].constant_term
+        new_norm_vector = norm_vector1 * coefficient + norm_vector2
+        new_const = const1 * coefficient + const2
+        self.planes[row_to_be_added_to] = Plane(new_norm_vector, new_const)
 
 
     def indices_of_first_nonzero_terms_in_each_row(self):
@@ -83,22 +95,3 @@ class LinearSystem(object):
 class MyDecimal(Decimal):
     def is_near_zero(self, eps=1e-10):
         return abs(self) < eps
-
-
-p0 = Plane([1,1,1], 1)
-p1 = Plane([0,1,0], 2)
-p2 = Plane([1,1,-1], 3)
-p3 = Plane([1,0,-2], 2)
-
-s = LinearSystem([p0,p1,p2,p3])
-
-print(s.indices_of_first_nonzero_terms_in_each_row())
-print('{},  {},  {},  {}'.format(s[0],s[1],s[2],s[3]))
-print(len(s))
-print(s)
-
-s[0] = p1
-print(s)
-
-print(MyDecimal('1e-9').is_near_zero())
-print(MyDecimal('1e-11').is_near_zero())

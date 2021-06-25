@@ -15,7 +15,7 @@ class Plane(object):
         if not normal_vector:
             all_zeros = ['0']*self.dimension
             normal_vector = Vector(all_zeros)
-        self.normal_vector = [Decimal(x) for x in normal_vector]
+        self.normal_vector = normal_vector
 
         if not constant_term:
             constant_term = Decimal('0')
@@ -26,7 +26,7 @@ class Plane(object):
 
     def set_basepoint(self):
         try:
-            n = self.normal_vector
+            n = self.normal_vector.coordinates
             c = self.constant_term
             basepoint_coords = ['0']*self.dimension
 
@@ -67,7 +67,7 @@ class Plane(object):
 
             return output
 
-        n = self.normal_vector
+        n = self.normal_vector.coordinates
 
         try:
             initial_index = Plane.first_nonzero_index(n)
@@ -98,8 +98,8 @@ class Plane(object):
 
 
     def is_parallel(self, p2):
-        n1 = Vector(self.normal_vector)
-        n2 = Vector(p2.normal_vector)
+        n1 = self.normal_vector
+        n2 = p2.normal_vector
         n1_norm = n1.norm()
         n2_norm = n2.norm()
         dot_product = abs(n1_norm * n2_norm)
@@ -107,38 +107,9 @@ class Plane(object):
 
     def __eq__(self, p2):
         v = self.basepoint - p2.basepoint
-        return MyDecimal(v*Vector(self.normal_vector)).is_near_zero()
-
-    def intersection(self, p2):
-        if self == l2:
-            return "The same plane"
-        if self.is_parallel(l2):
-            return "The planes are parallel"
-        A, B = self.normal_vector
-        C, D = l2.normal_vector
-        k1 = self.constant_term
-        k2 = l2.constant_term
-        dividend1 = D*k1 - B*k2
-        dividend2 = -C*k1 + A*k2
-        divisor = self.normal_vector[0]  *l2.normal_vector[1] - self.normal_vector[1] * l2.normal_vector[0]
-        return (dividend1/divisor, dividend2/divisor)
+        return self.is_parallel(p2) and MyDecimal(v*self.normal_vector).is_near_zero()
 
 
 class MyDecimal(Decimal):
     def is_near_zero(self, eps=1e-10):
         return abs(self) < eps
-
-
-p1 = Plane([1,2,3],4)
-p2 = Plane([2,4,6],7)
-p3 = Plane([4,5,6],7)
-print(p1.is_parallel(p2))
-print(p1.is_parallel(p3))
-print(p1==p2)
-#print(l1.intersection(l3))
-
-p1 = Plane([-0.412,3.806,0.728],-3.46)
-p2 = Plane([1.03,-9.515,-1.82],8.65)
-print("same: {}".format(p1==p2))
-print("parallel: {}".format(p1.is_parallel(p2)))
-

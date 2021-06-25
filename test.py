@@ -1,14 +1,154 @@
+import unittest
+from decimal import Decimal
 from vector import Vector
-#from line import Line
+from line import Line
+from plane import Plane
+from linsys import LinearSystem
 
+# Vector
 v1 = Vector([1,2,3])
-v2 = Vector([5,6,7])
+v2 = Vector([5,-6,7])
+v3 = Vector([6,8,10])
+k0 = 0
+k = -2
 
-print("sum: {}".format(v1 + v2))
-print("sub: {}".format(v1 - v2))
-print("mul1: {}".format(v1*2.1))
-print("mul2: {}".format(v1*v2))
-print("len: {}".format(v1.len()))
+class TestVector(unittest.TestCase):
 
-print(Vector([8.462,7.893,-8.187]).cross_product(Vector([6.984,-5.975,4.778])))
+    def test_001_add(self):
+        self.assertEqual(v1+v2, Vector([6,-4,10]))
 
+    def test_002_subtract(self):
+        self.assertEqual(v1-v3, Vector([-5,-6,-7]))
+
+    def test_003_mult_by_scalar(self):
+        self.assertEqual(v1*k0, Vector([0,0,0]))
+
+    def test_004_mult_by_scalar(self):
+        self.assertEqual(v2*k, Vector([-10,12,-14]))
+
+    def test_005_dot_product(self):
+        self.assertEqual(v1*v2, 14)
+
+    def test_006_len(self):
+        self.assertEqual(v1.len(), Decimal(14).sqrt())
+
+    def test_007_cross_product(self):
+        self.assertEqual(v1.cross_product(v2), Vector([32,8,-16]))
+
+
+# Line
+l1 = Line(Vector([2,4]),8)
+l2 = Line(Vector([-4,-8]),-16)
+l3 = Line(Vector([5,6]),7)
+l4 = Line(Vector([2,4]),5)
+
+class TestLine(unittest.TestCase):
+
+    def test_008_is_parallel(self):
+        self.assertTrue(l1.is_parallel(l2))
+
+    def test_009_is_parallel(self):
+        self.assertFalse(l1.is_parallel(l3))
+
+    def test_010_is_same_line(self):
+        self.assertEqual(l1,l2)
+
+    def test_011_is_parallel_not_same_line(self):
+        self.assertTrue(l1.is_parallel(l4) and l2 != l4)
+
+    def test_012_intersection(self):
+        self.assertEqual(l1.intersection(l3),(-2.5,3.25))
+
+
+
+# Plane
+p_1 = Plane(Vector([1,2,3]),4)
+p_2 = Plane(Vector([2,4,6]),0)
+p_3 = Plane(Vector([4,5,6]),7)
+p_4 = Plane(Vector([-1,-2,-3]),-4)
+
+class TestPlane(unittest.TestCase):
+
+    def test_013_is_parallel(self):
+        self.assertTrue(p_1.is_parallel(p_2))
+
+    def test_014_is_parallel(self):
+        self.assertFalse(p_1.is_parallel(p_3))
+
+    def test_015_is_same_plane(self):
+        self.assertEqual(p_1,p_4)
+
+    def test_016_is_parallel_not_same_plane(self):
+        self.assertTrue(p_1.is_parallel(p_2) and p_1 != p_2)
+
+
+
+# Linear System
+p0 = Plane(Vector([1,1,1]), 1)
+p1 = Plane(Vector([0,1,0]), 2)
+p2 = Plane(Vector([1,1,-1]), 3)
+p3 = Plane(Vector([1,0,-2]), 2)
+
+s = LinearSystem([p0,p1,p2,p3])
+
+
+class TestLinSys(unittest.TestCase):
+
+    def test_017_swap_rows(self):
+        s.swap_rows(0,1)
+        self.assertTrue(s[0] == p1 and s[1] == p0 and s[2] == p2 and s[3] == p3)
+
+    def test_018_swap_rows(self):
+        s.swap_rows(1,3)
+        self.assertTrue(s[0] == p1 and s[1] == p3 and s[2] == p2 and s[3] == p0)
+
+    def test_019_swap_rows(self):
+        s.swap_rows(3,1)
+        self.assertTrue(s[0] == p1 and s[1] == p0 and s[2] == p2 and s[3] == p3)
+
+
+    def test_020_multiply_coefficient_and_row(self):
+        s.multiply_coefficient_and_row(1,0)
+        self.assertTrue(s[0] == p1 and s[1] == p0 and s[2] == p2 and s[3] == p3)
+
+    def test_021_multiply_coefficient_and_row(self):
+        s.multiply_coefficient_and_row(-1,2)
+        self.assertTrue(s[0] == p1 and
+                        s[1] == p0 and
+                        s[2] == Plane(Vector([-1,-1,1]), -3) and
+                        s[3] == p3)
+
+    def test_022_multiply_coefficient_and_row(self):
+        s.multiply_coefficient_and_row(10,1)
+        self.assertTrue(s[0] == p1 and
+                        s[1] == Plane(Vector([10,10,10]), 10) and
+                        s[2] == Plane(Vector([-1,-1,1]), -3) and
+                        s[3] == p3)
+
+    def test_023_add_multiple_times_row_to_row(self):
+        s.add_multiple_times_row_to_row(0,0,1)
+        self.assertTrue(s[0] == p1 and
+                        s[1] == Plane(Vector([10,10,10]), 10) and
+                        s[2] == Plane(Vector([-1,-1,1]), -3) and
+                        s[3] == p3)
+
+    def test_024_add_multiple_times_row_to_row(self):
+        s.add_multiple_times_row_to_row(1,0,1)
+        self.assertTrue(s[0] == p1 and
+                        s[1] == Plane(Vector([10,11,10]), 12) and
+                        s[2] == Plane(Vector([-1,-1,1]), -3) and
+                        s[3] == p3)
+
+    def test_025_add_multiple_times_row_to_row(self):
+        s.add_multiple_times_row_to_row(-1,1,0)
+        self.assertTrue(s[0] == Plane(Vector([-10,-10,-10]), -10) and
+                        s[1] == Plane(Vector([10,11,10]), 12) and
+                        s[2] == Plane(Vector([-1,-1,1]), -3) and
+                        s[3] == p3)
+
+
+
+
+
+if __name__ == '__main__':
+    unittest.main() #failfast = True, verbosity=2, tb_locals=True
