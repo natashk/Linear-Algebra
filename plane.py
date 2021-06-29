@@ -106,6 +106,10 @@ class Plane(object):
         return MyDecimal(dot_product - Decimal(1)).is_near_zero()
 
     def __eq__(self, p2):
+        if self.basepoint is None and p2.basepoint is None:
+            return self.constant_term == p2.constant_term
+        if self.basepoint is None or p2.basepoint is None:
+            return False
         v = self.basepoint - p2.basepoint
         return self.is_parallel(p2) and MyDecimal(v*self.normal_vector).is_near_zero()
 
