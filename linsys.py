@@ -100,7 +100,7 @@ class LinearSystem(object):
         system = LinearSystem(tf)
         n = len(system) # number of equations
         pivot_indices = system.indices_of_first_nonzero_terms_in_each_row()
-        for i in range(n-1,0,-1):
+        for i in range(n-1,-1,-1):
             j = pivot_indices[i]
             if j == -1:
                 continue
@@ -108,6 +108,23 @@ class LinearSystem(object):
             system.clear_coef_above(i, j)
         return tf
 
+
+    def solution(self):
+        system = LinearSystem(self.compute_rref())
+        n = len(system) # number of equations
+        for i in range(n-1,-1,-1):
+            row_i = system.planes[i]
+            zero_normal_vector = all([MyDecimal(k).is_near_zero() for k in row_i.normal_vector.coordinates])
+            if zero_normal_vector and not MyDecimal(row_i.constant_term).is_near_zero():
+                # 0 = k
+                return "No solution"
+
+        pivot_indices = system.indices_of_first_nonzero_terms_in_each_row()
+        num_of_pivots = sum([1 if idx>=0 else 0 for idx in pivot_indices])
+        if num_of_pivots < system.dimension:
+            return "Infinite solutions"
+
+        return [system.planes[i].constant_term for i in range(system.dimension)]
 
     def indices_of_first_nonzero_terms_in_each_row(self):
         num_equations = len(self)

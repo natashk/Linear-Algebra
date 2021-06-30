@@ -225,6 +225,27 @@ class TestLinSys(unittest.TestCase):
                         r[2] == Plane(Vector([0,0,1]), Decimal(2)/Decimal(9)))
 
 
+    def test_034_compute_ge_solution(self):
+        p1 = Plane(Vector([5.862,1.178,-10.366]), -8.15)
+        p2 = Plane(Vector([-2.931,-0.589,5.183]), -4.075)
+        s = LinearSystem([p1,p2])
+        self.assertTrue(s.solution() == "No solution")
+
+    def test_035_compute_ge_solution(self):
+        p1 = Plane(Vector([8.631,5.112,-1.816]), -5.113)
+        p2 = Plane(Vector([4.315,11.132,-5.27]), -6.775)
+        p3 = Plane(Vector([-2.158,3.01,-1.727]), -0.831)
+        s = LinearSystem([p1,p2,p3])
+        self.assertTrue(s.solution() == "Infinite solutions")
+
+    def test_036_compute_ge_solution(self):
+        p1 = Plane(Vector([5.262,2.739,-9.878]), -3.441)
+        p2 = Plane(Vector([5.111,6.358,7.638]), -2.152)
+        p3 = Plane(Vector([2.016,-9.924,-1.367]), -9.278)
+        p4 = Plane(Vector([2.167,-13.543,-18.883]), -10.567)
+        s = LinearSystem([p1,p2,p3,p4])
+        self.assertTrue(s.solution() == [Decimal('-1.17720187578995858313947665147'), Decimal('0.707150558138740933006474968221'), Decimal('-0.0826635849022828890650647196946')])
+
 
 if __name__ == '__main__':
     unittest.main() #failfast = True, verbosity=2, tb_locals=True
